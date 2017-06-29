@@ -15,14 +15,21 @@ namespace MedinaOfSpices.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "About.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact page.";
+
+            return View();
+        }
+
+        public ActionResult Recipes()
+        {
+            ViewBag.Message = "Recipes page.";
 
             return View();
         }
