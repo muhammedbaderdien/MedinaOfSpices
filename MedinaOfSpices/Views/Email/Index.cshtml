@@ -1,0 +1,96 @@
+﻿@model MedinaOfSpices.Models.EmailModel
+
+@{
+    ViewBag.Title = "Contact Us";
+}
+
+@using (Html.BeginForm("SendEmail", "Email", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="contact container">
+        <div class="contact-head">
+            <h3>CONTACT US</h3>
+        </div>
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.ToEmail, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-12">
+                    @Html.HiddenFor(model => model.ToEmail, new { Value = System.Configuration.ConfigurationManager.AppSettings["ToEmail"] })
+                    @*@Html.EditorFor(model => model.ToEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })*@
+                    @Html.ValidationMessageFor(model => model.ToEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.EmailSubject, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.EmailSubject, new { htmlAttributes = new { @class = "form-control", @placeholder = "Subject" } })
+                    @Html.ValidationMessageFor(model => model.EmailSubject, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.EMailBody, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.EMailBody, new { htmlAttributes = new { @class = "form-control", @placeholder = "Message" } })
+                    @Html.ValidationMessageFor(model => model.EMailBody, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.EmailCC, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-12">
+                    @*@Html.EditorFor(model => model.EmailCC, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.HiddenFor(model => model.EmailCC, new { Value = System.Configuration.ConfigurationManager.AppSettings["CCEmail"] })
+                    @Html.ValidationMessageFor(model => model.EmailCC, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.EmailBCC, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.EmailBCC, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EmailBCC, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Send" class="btn btn-default" />
+                </div>
+            </div>
+
+            <div class="contact-details">
+                <div class="col-md-6 contact-map">
+                    <h4>FIND US HERE</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2159.8144314949504!2d27.953130411164107!3d-26.187456011041263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4373d1c463%3A0xc5226412ffafbe53!2sMedina+Of+Spices!5e0!3m2!1sen!2sza!4v1493986432574" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6 company_address">
+
+                    <h4>ADDRESS</h4>
+                    <p>03 Soutpansberg Ave</p>
+                    <p>Bosmont</p>
+                    <p>Johannesburg</p>
+                    <p>2093</p>
+                    <p>Phone: 072 316 2299</p>
+                    @*<p>Fax: (000) 000 00 00 0</p>*@
+                    <p>Email: <a href="noahbaderdien@gmail.com">noahbaderdien@gmail.com</a></p>
+                    @*<p>Follow on: <a href="#">Facebook</a>, <a href="#">Twitter</a></p>*@
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
