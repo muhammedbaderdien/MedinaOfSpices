@@ -1,0 +1,20 @@
+[
+  {
+    "outputFileName": "Content/Site.min.css",
+    "inputFiles": [
+      "Content/Site.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/style.min.css",
+    "inputFiles": [
+      "Content/style.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/cm-overlay.min.css",
+    "inputFiles": [
+      "Content/cm-overlay.css"
+    ]
+  }
+]

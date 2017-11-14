@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<parameters>
+	<parameter name="Medina Of Spices" description="Medina Of Spices" defaultvalue="__iisappname__">
+		<parameterentry kind="ProviderPath" scope="IiSApp" match="@defaultvalue"/>
+	</parameter>
+
+	<parameter name="Test1" description="Test1" defaultvalue="__environmentname__">
+		<parameterentry kind="XmlFile" scope="\\Web.config$" match="/configuration/ServicesSection/Services/add[@Key='Test1']/@Environment"/>
+	</parameter>
+	<parameter name="Test2" description="Test1" defaultvalue="__test2token__">
+		<parameterentry kind="XmlFile" scope="\\Web.config$" match="/configuration/ServicesSection/Services/add[@Key='Test2']/@Environment"/>
+	</parameter>
+	<parameter name="DeveloperName" description="Developer Email Address" defaultvalue="__developername__">
+		<parameterentry kind="XmlFile" scope="\\Web.config$" match="/configuration/appSettings/add[@key='DeveloperName']/@value"/>
+	</parameter>
+	<parameter name="DeveloperEmail" description="Developer Email Address" defaultvalue="__developeremailaddress__">
+		<parameterentry kind="XmlFile" scope="\\Web.config$" match="/configuration/appSettings/add[@key='DeveloperEmail']/@value"/>
+	</parameter>
+
+</parameters>

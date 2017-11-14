@@ -1,0 +1,708 @@
+﻿<!-- ko with: home -->
+<!-- banner -->
+@using MedinaOfSpices.Models
+@model Tuple<List<PriceListModel>, EmailModel>
+
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+		/*Setup Datatables.js*/
+		$('#priceData').DataTable({
+			responsive: true
+		});
+
+	});
+</script>
+
+<div class="banner jarallax">
+	<div class="agileinfo-dot">
+		<div class="header">
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="agileits-logo">
+							<h1>
+								<a href="">
+									<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+									@*<img src="images/logo1.png" alt="" />*@
+									Medina Of Spices
+								</a>
+							</h1>
+						</div>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<nav>
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="">Home</a></li>
+								<li><a href="#prices" class="scroll">Price List</a></li>
+								<li><a href="#about" class="scroll">About</a></li>
+								@*<li><a href="#team" class="scroll">Team</a></li>*@
+								<li><a href="#news" class="scroll">News</a></li>
+								<li><a href="#findus" class="scroll">Find Us</a></li>
+								<li><a href="#mail" class="scroll">Contact Us</a></li>
+								<li><a href="#events" class="scroll">Gallery</a></li>
+								<li><a href="#privacy" class="scroll">Privacy</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+		</div>
+		<div class="arayouts-banner-info">
+			<div class="container">
+				<div class="ars-text">
+					<h2>Spice Retailer</h2>
+				</div>
+				<div class="w3-arrow bounce animated">
+					<a href="#prices" class="scroll"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+<!-- introduction -->
+@*<div class="introduction" id="indro">
+	<div class="container">
+		<div class="ar-heading">
+			<h3>Introduction</h3>
+			<div class="ars-border"> </div>
+		</div>
+		<div class="introduction-info">
+			<p>Medina Of Spices, for all your rice, spice and Lentils.</p>
+			<p>Please contact us to place orders now.</p>
+
+		</div>
+	</div>
+</div>*@
+<!-- //introduction -->
+<!-- pricelist -->
+<div class="introduction" id="prices">
+	<div class="container">
+		<div class="ar-heading">
+			<h3>Price List</h3>
+			<div class="ars-border"> </div>
+		</div>
+		<div class="introduction-info">
+			<p>Medina Of Spices, for all your rice, spice and Lentils.</p>
+			<p>Please <a href="#mail">contact us</a> to place orders now.</p>
+			<table id="priceData" class="display" cellspacing="0" width="100%">
+
+				<thead>
+					<tr>
+						<th>Product Name</th>
+						<th>Product Weight</th>
+						<th>Product Price</th>
+						<th>Product Description</th>
+						@*<th></th>*@
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model.Item1)
+					{
+					<tr>
+						<td>@Html.DisplayFor(d => item.Title)</td>
+						<td>@Html.DisplayFor(d => item.Weight)</td>
+						<td>@Html.DisplayFor(d => item.Price)</td>
+						<td>@Html.DisplayFor(d => item.Description)</td>
+						@*<td>
+								@Html.ActionLink("View", "Edit", new { id = item.PartyId, ddlSearchType = Model.Item2.Id, search = Model.Item2.Value }, new { id = "alinkView" })
+							</td>*@
+					</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- //pricelist -->
+<!-- about -->
+<div class="about" id="about">
+	<div class="container">
+		<div class="ar-heading about-heading">
+			<h3>About Us</h3>
+			<div class="ars-border about-border"> </div>
+		</div>
+		<div class="agileits-about-grids">
+			<div class="about-grids">
+				<div class="col-md-6 about-grid">
+					<div class="col-xs-3 about-grid-left">
+						<span class="glyphicon glyphicon-briefcase effect-1" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-9 about-grid-right">
+						<h4>Mission</h4>
+						<p>
+							Retailer for all your rice, spice and lentils.
+						</p>
+						<p>
+							We are personally accountable for delivering on our commitments.
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid">
+					<div class="col-xs-3 about-grid-left">
+						<span class="glyphicon glyphicon-road effect-1" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-9 about-grid-right">
+						<h4>Vision</h4>
+						<p>
+							To provide the best rice, spice and lentils.
+						</p>
+						<p>
+							To inspire healthier communities by connecting people to real spices.
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //about -->
+
+<!-- team -->
+@*<div class="team jarallax" id="team">
+		<div class="team-dot">
+			<div class="container">
+				<div class="ar-heading about-heading">
+					<h3>Our Team</h3>
+					<div class="ars-border about-border"> </div>
+				</div>
+				<div class="agileits-team-grids">
+					<div class="col-md-4 agileits-team-grid">
+						<div class="team-info">
+							<img src="images/t1.jpg" alt="" />
+							<div class="team-caption">
+								<h4>Justo congue</h4>
+								<p>Fusce laoreet</p>
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-rss"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 agileits-team-grid">
+						<div class="team-info">
+							<img src="images/t2.jpg" alt="" />
+							<div class="team-caption">
+								<h4>Justo congue</h4>
+								<p>Fusce laoreet</p>
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-rss"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 agileits-team-grid">
+						<div class="team-info">
+							<img src="images/t3.jpg" alt="" />
+							<div class="team-caption">
+								<h4>Justo congue</h4>
+								<p>Fusce laoreet</p>
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-rss"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>*@
+<!-- //team -->
+<!-- news -->
+<div class="news" id="news">
+	<div class="container">
+		<div class="ar-heading">
+			<h3>Our news</h3>
+			<div class="ars-border"> </div>
+		</div>
+		<div class="wthree-news-grids">
+			<!-- date -->
+			<div id="design" class="date">
+				<div id="cycler">
+
+					<div class="wthree-news-grid">
+						<div class="wthree-news-left">
+							<h4>03 <span>October 2017</span></h4>
+						</div>
+						<div class="date-text">
+							<a href="#" data-toggle="modal" data-target="#myModal"> New Website</a>
+							<p>New website released.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<script>
+					function blinker() {
+						$('.blinking').fadeOut(500);
+						$('.blinking').fadeIn(500);
+					}
+					setInterval(blinker, 1000);
+				</script>
+				<script>
+                    //function cycle($item, $cycler) {
+                    //    setTimeout(cycle, 2000, $item.next(), $cycler);
+
+                    //    $item.slideUp(1000, function () {
+                    //        $item.appendTo($cycler).show();
+                    //    });
+                    //}
+                    //cycle($('#cycler div:first'), $('#cycler'));
+				</script>
+			</div>
+			<!-- //date -->
+		</div>
+	</div>
+</div>
+<!-- //news -->
+<!-- modal -->
+<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Medina Of Spices</h4>
+				<h5>24 Sept 2017</h5>
+			</div>
+			<div class="modal-body">
+				<div class="agileits-arayouts-info">
+					<img src="images/1.jpg" alt="" />
+					<p>Duis venenatis, turpis eu bibendum porttitor, sapien quam ultricies tellus, ac rhoncus risus odio eget nunc. Pellentesque ac fermentum diam. Integer eu facilisis nunc, a iaculis felis. Pellentesque pellentesque tempor enim, in dapibus turpis porttitor quis. Suspendisse ultrices hendrerit massa. Nam id metus id tellus ultrices ullamcorper.  Cras tempor massa luctus, varius lacus sit amet, blandit lorem. Duis auctor in tortor sed tristique. Proin sed finibus sem.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //modal -->
+<!-- contact -->
+<div class="contact" id="findus">
+	<div class="container">
+		<div class="ar-heading about-heading">
+			<h3>Find Us Here</h3>
+			<div class="ars-border about-border"> </div>
+		</div>
+		<div class="introduction-info contact-info">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2159.8144314949504!2d27.953130411164107!3d-26.187456011041263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950a4373d1c463%3A0xc5226412ffafbe53!2sMedina+Of+Spices!5e0!3m2!1sen!2sza!4v1493986432574" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
+</div>
+
+<div class="contact-form" id="mail">
+	<div class="col-md-4 contact-form-left">
+		<h5>Our Location</h5>
+		<div class="address-grids">
+			<div class="address-grid">
+				<div class="address-icon">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+				</div>
+				<div class="address-info">
+					<p>
+						03 Soutpansberg Avenue<br>
+						Bosmont<br>
+						Johannesburg<br>
+						2093
+					</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+			<div class="address-grid">
+				<div class="address-icon">
+					<i class="fa fa-phone" aria-hidden="true"></i>
+				</div>
+				<div class="address-info">
+					<p>
+						0723162299
+					</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="address-grid">
+				<div class="address-icon">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</div>
+				<div class="address-info">
+					<p><a href="mailto:noahbaderdien@gmail.com">noahbaderdien@gmail.com</a></p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</div>
+@using (Html.BeginForm("SendEmail", "Home", FormMethod.Post, Model.Item2))
+{
+	@Html.AntiForgeryToken()
+
+	<div class="col-md-8 contact-form-right">
+		<h5>Contact Form</h5>
+		<div class="contact-form-grid">
+			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+			<div class="fields-grid">
+				<div class="form-group">
+					<div class="">
+						@Html.HiddenFor(model => Model.Item2.CreatedOn, new { Value = DateTime.Now })
+						@Html.ValidationMessageFor(model => Model.Item2.CreatedOn, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="">
+						@Html.HiddenFor(model => Model.Item2.ToEmail, new { Value = System.Configuration.ConfigurationManager.AppSettings["ToEmail"] })
+						@Html.ValidationMessageFor(model => Model.Item2.ToEmail, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="">
+						@Html.HiddenFor(model => Model.Item2.EmailCC, new { Value = System.Configuration.ConfigurationManager.AppSettings["CCEmail"] })
+						@Html.ValidationMessageFor(model => Model.Item2.EmailCC, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+						@Html.LabelFor(model => Model.Item2.FullName, new { htmlAttributes = new { @class = "col-form-label" } })
+						@Html.EditorFor(model => Model.Item2.FullName, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => Model.Item2.FullName, "", new { @class = "text-danger" })
+						<span></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+						@Html.LabelFor(model => Model.Item2.ContactNo, new { htmlAttributes = new { @class = "col-form-label" } })
+						@Html.EditorFor(model => Model.Item2.ContactNo, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => Model.Item2.ContactNo, "", new { @class = "text-danger" })
+						<span></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+						@Html.LabelFor(model => Model.Item2.EmailAddress, new { htmlAttributes = new { @class = "col-form-label" } })
+						@Html.EditorFor(model => Model.Item2.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => Model.Item2.EmailAddress, "", new { @class = "text-danger" })
+						<span></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+						@Html.LabelFor(model => Model.Item2.Subject, new { htmlAttributes = new { @class = "col-form-label" } })
+						@Html.EditorFor(model => Model.Item2.Subject, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => Model.Item2.Subject, "", new { @class = "text-danger" })
+						<span></span>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					@Html.LabelFor(model => Model.Item2.EMailBody, new { htmlAttributes = new { @class = "col-form-label" } })
+					@Html.EditorFor(model => Model.Item2.EMailBody, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => Model.Item2.EMailBody, "", new { @class = "text-danger" })
+					<span></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<input type="submit" text="Send" class="btn btn-default" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					@ViewBag.Status
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearfix"> </div>
+
+}
+<!-- //contact -->
+<!-- gallery -->
+<div class="gallery" id="events">
+	<div class="container">
+		<div class="ar-heading">
+			<h3>Our Gallery</h3>
+			<div class="ars-border"> </div>
+		</div>
+		<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+			<ul id="myTab" class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home-main" aria-expanded="true">All</a></li>
+				@*<li role="presentation"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">Category 1</a></li>
+					<li role="presentation"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">Category 2</a></li>
+					<li role="presentation"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">Category 3</a></li>
+					<li role="presentation"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">Category 4</a></li>*@
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="home-main" aria-labelledby="home-tab">
+					<div class="ar_tab_img">
+						<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+							<div class="demo">
+								<a class="cm-overlay" href="images/g1.jpg">
+									<figure class="imghvr-shutter-in-out-diag-2">
+										<img src="~/images/Turmeric.jpg" alt=" " class="img-responsive" />
+									</figure>
+								</a>
+							</div>
+							<div class="agile-gallery-info">
+								<h5>Turmeric</h5>
+								<p>Turmeric is a rhizomatous herbaceous perennial plant of the ginger family, Zingiberaceae. It is native to Southeast Asia, and requires temperatures between 20 and 30 °C and a considerable amount of annual rainfall to thrive.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+							<div class="demo">
+								<a class="cm-overlay" href="images/g2.jpg">
+									<figure class="imghvr-shutter-in-out-diag-2">
+										<img src="~/images/Cumin.jpg" alt=" " class="img-responsive" />
+									</figure>
+								</a>
+							</div>
+							<div class="agile-gallery-info">
+								<h5>Cumin</h5>
+								<p>Cumin is a flowering plant in the family Apiaceae, native from the east Mediterranean to South Asia. Its seeds are used in the cuisines of many different cultures, in both whole and ground form.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+							<div class="demo">
+								<a class="cm-overlay" href="images/g3.jpg">
+									<figure class="imghvr-shutter-in-out-diag-2">
+										<img src="images/g8.jpg" alt=" " class="img-responsive" />
+									</figure>
+								</a>
+							</div>
+							<div class="agile-gallery-info">
+								<h5>Coriander</h5>
+								<p>Coriander, also known as cilantro or Chinese parsley, is an annual herb in the family Apiaceae. All parts of the plant are edible, but the fresh leaves and the dried seeds are the parts most traditionally used in cooking.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+							<div class="demo">
+								<a class="cm-overlay" href="images/g4.jpg">
+									<figure class="imghvr-shutter-in-out-diag-2">
+										<img src="~/images/Chillijpg.jpg" alt=" " class="img-responsive" />
+									</figure>
+								</a>
+							</div>
+							<div class="agile-gallery-info">
+								<h5>Chili powder</h5>
+								<p>Chili powder is the dried, pulverized fruit of one or more varieties of chili pepper, sometimes with the addition of other spices. It is used as a spice to add pungency or piquancy and flavor to dishes.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+							<div class="demo">
+								<a class="cm-overlay" href="images/g5.jpg">
+									<figure class="imghvr-shutter-in-out-diag-2">
+										<img src="~/images/salt.jpg" alt=" " class="img-responsive" />
+									</figure>
+								</a>
+							</div>
+							<div class="agile-gallery-info">
+								<h5>Salt</h5>
+								<p>Salt or common salt is a mineral composed primarily of sodium chloride, a chemical compound belonging to the larger class of salts; salt in its natural form as a crystalline mineral is known as rock salt or halite.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+							<div class="demo">
+								<a class="cm-overlay" href="images/g6.jpg">
+									<figure class="imghvr-shutter-in-out-diag-2">
+										<img src="~/images/black-pepper_625x350_51446463333.jpg" alt=" " class="img-responsive" />
+									</figure>
+								</a>
+							</div>
+							<div class="agile-gallery-info">
+								<h5>Black pepper</h5>
+								<p>Black pepper is a flowering vine in the family Piperaceae, cultivated for its fruit, which is usually dried and used as a spice and seasoning. When dried, the fruit is known as a peppercorn.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+							<div class="demo">
+								<a class="cm-overlay" href="images/g7.jpg">
+									<figure class="imghvr-shutter-in-out-diag-2">
+										<img src="~/images/Cinnamon.jpg" alt=" " class="img-responsive" />
+									</figure>
+								</a>
+							</div>
+							<div class="agile-gallery-info">
+								<h5>Cinnamon</h5>
+								<p>Cinnamon is a spice obtained from the inner bark of several tree species from the genus Cinnamomum. Cinnamon is used mainly as an aromatic condiment and flavoring additive in a wide variety of cuisines, sweet and savoury dishes, breakfast cereals, snackfoods, and traditional foods. The aroma and flavor of cinnamon derive from its essential oil and principal component, cinnamaldehyde, as well as numerous other constituents, including eugenol.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+							<div class="demo">
+								<a class="cm-overlay" href="images/g1.jpg">
+									<figure class="imghvr-shutter-in-out-diag-2">
+										<img src="~/images/Coconut.jpg" alt=" " class="img-responsive" />
+									</figure>
+								</a>
+							</div>
+							<div class="agile-gallery-info">
+								<h5>Coconut</h5>
+								<p>The coconut tree is a member of the family Arecaceae and the only species of the genus Cocos. The term coconut can refer to the whole coconut palm or the seed, or the fruit, which, botanically, is a drupe, not a nut.</p>
+							</div>
+						</div>
+						<div class="ar_tab_img">
+							<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+								<div class="demo">
+									<a class="cm-overlay" href="images/g2.jpg">
+										<figure class="imghvr-shutter-in-out-diag-2">
+											<img src="~/images/Semolina.jpg" alt=" " class="img-responsive">
+										</figure>
+									</a>
+								</div>
+								<div class="agile-gallery-info">
+									<h5>Semolina</h5>
+									<p>Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous. The word semolina can also refer to sweet dessert made from semolina and milk</p>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-4 col-sm-6 ar_tab_img_left">
+								<div class="demo">
+									<a class="cm-overlay" href="images/g3.jpg">
+										<figure class="imghvr-shutter-in-out-diag-2">
+											<img src="~/images/lentils.jpg" alt=" " class="img-responsive">
+										</figure>
+									</a>
+								</div>
+								<div class="agile-gallery-info">
+									<h5>Lentils</h5>
+									<p>The lentil is an edible pulse. It is a bushy annual plant of the legume family, known for its lens-shaped seeds. It is about 40 cm tall, and the seeds grow in pods, usually with two seeds in each.</p>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="learning" aria-labelledby="learning-tab">
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="playing" aria-labelledby="playing-tab">
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="painting" aria-labelledby="painting-tab">
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="school" aria-labelledby="school-tab">
+				</div>
+			</div>
+		</div>
+		<script src="Scripts/Custom/jquery.tools.min.js"></script>
+		<script src="Scripts/jquery.mobile-1.4.5.js"></script>
+		<script src="Scripts/Custom/jquery.cm-overlay.js"></script>
+		<script>
+			$(document).ready(function () {
+				$('.cm-overlay').cmOverlay();
+			});
+		</script>
+	</div>
+</div>
+<!-- //gallery -->
+<!-- privacy -->
+<div class="about" id="privacy">
+	<div class="container">
+		<div class="ar-heading about-heading">
+			<h3>Privacy</h3>
+			<div class="ars-border about-border"> </div>
+		</div>
+		<div class="agileits-about-grids">
+			<div class="about-grids">
+				<div class="col-md-6 about-grid">
+					<div class="col-xs-3 about-grid-left">
+						<span class="glyphicon glyphicon-book effect-1" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-9 about-grid-right">
+						<h4>Privacy</h4>
+						<p>
+							Retailer for all your rice, spice and lentils.
+						</p>
+						<br />
+						<p>This site does not share personal information with third parties nor do we store any information about your visit to this site other than to analyze and optimize your content and reading experience through the use of cookies.</p>
+
+						<br />
+						<p>
+							You can turn off the use of cookies at anytime by changing your specific browser settings.
+						</p>
+
+						<br />
+						<p>
+							We are not responsible for republished content from this site on other websites without our permission.
+						</p>
+
+						<br />
+						<p>This privacy policy is subject to change without notice. If you have any questions feel free to contact me directly here: muhammedb@programmer.net</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 about-grid">
+					<div class="col-xs-3 about-grid-left">
+						<span class="glyphicon glyphicon-certificate effect-1" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-9 about-grid-right">
+						<h4>Cookies</h4>
+						<p>
+							We use cookies to store information about visitor preferences and to record user-specific information on visits and pages the user views so as to provide a custom experience. In regard to third-party advertisers, TentBlogger has no access or control over these cookies. You should review the respective privacy policies on any and all third-party ad servers for more information regarding their practices and how to opt-out.
+						</p>
+						<p>
+							We use cookies to store information about visitor preferences and to record user-specific information on visits and pages the user views so as to provide a custom experience. In regard to third-party advertisers, TentBlogger has no access or control over these cookies. You should review the respective privacy policies on any and all third-party ad servers for more information regarding their practices and how to opt-out.
+						</p>
+						<p>
+							If you wish to disable cookies you may do so through your web browser options. Instructions for doing so and for other cookie-related management can be found on the specific web browsers’ websites.
+						</p>
+						<br />
+						<p>
+							<b>DoubleClick DART Cookie</b>
+						</p>
+						<p>
+							Google, a third party vendor, uses the DART cookie to serve ads on TentBlogger. Users may opt out of the use of the DART cookie by visiting Google’s Content Network Privacy Policy.
+						</p>
+						<br />
+						<p>
+							<b>Amazon Affiliates Cookie</b>
+						</p>
+						<p>
+							Amazon Affiliates, a third party system, uses cookies to serve advertisements and links to products on Amazon.com.  You may read more about Amazon Affiliates and their Operating Agreement here.
+						</p>
+						<br />
+						<p>
+							<b>BuySellAds Cookie</b>
+						</p>
+						<p>
+							BuySellAds is an ad-serving platform and network that provide direct advertising opportunities for businesses and organizations. You may read more about this cookie and their Privacy Policy here.
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //privacy -->
+<!-- footer -->
+<footer>
+	<div class="container">
+		<p>© @System.DateTime.Now.Year Medina Of Spices. All Rights Reserved</p>
+		<p>Software Developer: @System.Configuration.ConfigurationManager.AppSettings["DeveloperName"] - <a href="mailto:@System.Configuration.ConfigurationManager.AppSettings["DeveloperEmail"]">@System.Configuration.ConfigurationManager.AppSettings["DeveloperEmail"]</a> </p>
+		<p>@ViewBag.Environment</p>
+	</div>
+</footer>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}
+
+<!-- /ko -->

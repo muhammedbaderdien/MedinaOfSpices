@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedinaOfSpices", "MedinaOfSpices\MedinaOfSpices.csproj", "{422435F7-9AF8-4ADE-BC16-5536752955AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
+		UAT|Any CPU = UAT|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{422435F7-9AF8-4ADE-BC16-5536752955AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{422435F7-9AF8-4ADE-BC16-5536752955AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{422435F7-9AF8-4ADE-BC16-5536752955AB}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{422435F7-9AF8-4ADE-BC16-5536752955AB}.Production|Any CPU.Build.0 = Production|Any CPU
+		{422435F7-9AF8-4ADE-BC16-5536752955AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{422435F7-9AF8-4ADE-BC16-5536752955AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{422435F7-9AF8-4ADE-BC16-5536752955AB}.UAT|Any CPU.ActiveCfg = UAT|Any CPU
+		{422435F7-9AF8-4ADE-BC16-5536752955AB}.UAT|Any CPU.Build.0 = UAT|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69A426BF-65B7-449D-9BD8-244DD8767DF7}
+	EndGlobalSection
+EndGlobal
